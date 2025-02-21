@@ -1,23 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Transfer from "./pages/Transfer";
 import Home from "./pages/Home";
-function AnimatedRoutes() {
-  const location = useLocation(); // Track current route
-
-  return (
-    <AnimatePresence mode="wait"> 
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </AnimatePresence>
-  );
-}
+import User from "./pages/User";
+import Docs from "./pages/Docs";
 
 function App() {
   return (
     <Router>
-      <AnimatedRoutes />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/transfer" element={<Transfer />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/user" element={<User />} />
+
+      </Routes>
     </Router>
   );
 }
